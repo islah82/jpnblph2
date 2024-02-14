@@ -515,6 +515,12 @@ class _FrmauthorWidgetState extends State<FrmauthorWidget>
                                                                   .text,
                                                               ParamType.String,
                                                             ),
+                                                            'adminrole':
+                                                                serializeParam(
+                                                              columnJpnTblauthorRow
+                                                                  ?.fldrole,
+                                                              ParamType.String,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       } else {

@@ -3,10 +3,10 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
-import 'frmlistborang_widget.dart' show FrmlistborangWidget;
+import 'frmlistborang_p_p_k_j_widget.dart' show FrmlistborangPPKJWidget;
 import 'package:flutter/material.dart';
 
-class FrmlistborangModel extends FlutterFlowModel<FrmlistborangWidget> {
+class FrmlistborangPPKJModel extends FlutterFlowModel<FrmlistborangPPKJWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

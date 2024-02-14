@@ -794,63 +794,63 @@ class _FrmlistpegawaiWidgetState extends State<FrmlistpegawaiWidget> {
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: () {
-                                                                      if (listViewTrueJpnTblauthorRow
-                                                                              .fldrole ==
-                                                                          'Sistem') {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent2;
-                                                                      } else if (listViewTrueJpnTblauthorRow
-                                                                              .fldrole ==
-                                                                          'PPKJ') {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent1;
-                                                                      } else if (listViewTrueJpnTblauthorRow
-                                                                              .fldrole ==
-                                                                          'Pegawai Penyelaras Bahagian') {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent3;
-                                                                      } else {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .secondaryText;
-                                                                      }
-                                                                    }(),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .tertiary,
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color:
+                                                                          () {
+                                                                        if (listViewTrueJpnTblauthorRow.fldrole ==
+                                                                            'Sistem') {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent2;
+                                                                        } else if (listViewTrueJpnTblauthorRow.fldrole ==
+                                                                            'PPKJ') {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent1;
+                                                                        } else if (listViewTrueJpnTblauthorRow.fldrole ==
+                                                                            'Pegawai Penyelaras Bahagian') {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent3;
+                                                                        } else {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .secondaryText;
+                                                                        }
+                                                                      }(),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                      border:
+                                                                          Border
+                                                                              .all(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .tertiary,
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          4.0,
-                                                                          8.0,
-                                                                          4.0),
+                                                                        Align(
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
-                                                                          Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          listViewTrueJpnTblauthorRow
-                                                                              .fldrole,
-                                                                          'rrlo',
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            listViewTrueJpnTblauthorRow.fldrole,
+                                                                            'rrlo',
+                                                                          ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodySmall,
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1081,63 +1081,63 @@ class _FrmlistpegawaiWidgetState extends State<FrmlistpegawaiWidget> {
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                Container(
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: () {
-                                                                      if (authorListViewItem
-                                                                              .fldrole ==
-                                                                          'Sistem') {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent2;
-                                                                      } else if (authorListViewItem
-                                                                              .fldrole ==
-                                                                          'PPKJ') {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent1;
-                                                                      } else if (authorListViewItem
-                                                                              .fldrole ==
-                                                                          'Pegawai Penyelaras Bahagian') {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .accent3;
-                                                                      } else {
-                                                                        return FlutterFlowTheme.of(context)
-                                                                            .secondaryText;
-                                                                      }
-                                                                    }(),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .tertiary,
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color:
+                                                                          () {
+                                                                        if (authorListViewItem.fldrole ==
+                                                                            'Sistem') {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent2;
+                                                                        } else if (authorListViewItem.fldrole ==
+                                                                            'PPKJ') {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent1;
+                                                                        } else if (authorListViewItem.fldrole ==
+                                                                            'Pegawai Penyelaras Bahagian') {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .accent3;
+                                                                        } else {
+                                                                          return FlutterFlowTheme.of(context)
+                                                                              .secondaryText;
+                                                                        }
+                                                                      }(),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                      border:
+                                                                          Border
+                                                                              .all(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .tertiary,
+                                                                      ),
                                                                     ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          4.0,
-                                                                          8.0,
-                                                                          4.0),
+                                                                        Align(
+                                                                      alignment:
+                                                                          const AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
-                                                                          Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          authorListViewItem
-                                                                              .fldrole,
-                                                                          'rrole',
+                                                                          Padding(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            4.0,
+                                                                            8.0,
+                                                                            4.0),
+                                                                        child:
+                                                                            Text(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            authorListViewItem.fldrole,
+                                                                            'rrole',
+                                                                          ),
+                                                                          style:
+                                                                              FlutterFlowTheme.of(context).bodySmall,
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodySmall,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -1912,7 +1912,10 @@ class _FrmlistpegawaiWidgetState extends State<FrmlistpegawaiWidget> {
                                                                               child: Padding(
                                                                                 padding: const EdgeInsetsDirectional.fromSTEB(8.0, 4.0, 8.0, 4.0),
                                                                                 child: Text(
-                                                                                  'Viewer',
+                                                                                  valueOrDefault<String>(
+                                                                                    queryPBFalseItem.note,
+                                                                                    'nt',
+                                                                                  ),
                                                                                   style: FlutterFlowTheme.of(context).bodySmall,
                                                                                 ),
                                                                               ),

@@ -66,6 +66,10 @@ class PdfMonkeyCall {
     String? tandatanganpb = '',
     String? waktumula = '',
     String? waktutamat = '',
+    String? namappb = '',
+    String? tarikhppb = '',
+    String? namappkj = '',
+    String? tarikhppkj = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -90,9 +94,12 @@ class PdfMonkeyCall {
       "answer11": "$answer11",
       "answer12": "$answer12",
       "answer13": "$answer13",
-      "tandatanganpb": "$tandatanganpb",
       "waktumula": "$waktumula",
-      "waktutamat": "$waktutamat"
+      "waktutamat": "$waktutamat",
+      "namappb": "$namappb",
+      "tarikhppb": "$tarikhppb",
+      "namappkj": "$namappkj",
+      "tarikhppkj": "$tarikhppkj"
     },
     "meta": {
       "clientId": "ABC1234-DE",

@@ -11,11 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'frmlistborang_model.dart';
-export 'frmlistborang_model.dart';
+import 'frmlistborang_p_p_k_j_model.dart';
+export 'frmlistborang_p_p_k_j_model.dart';
 
-class FrmlistborangWidget extends StatefulWidget {
-  const FrmlistborangWidget({
+class FrmlistborangPPKJWidget extends StatefulWidget {
+  const FrmlistborangPPKJWidget({
     super.key,
     required this.ppbnama,
     required this.role,
@@ -25,19 +25,20 @@ class FrmlistborangWidget extends StatefulWidget {
   final String? role;
 
   @override
-  State<FrmlistborangWidget> createState() => _FrmlistborangWidgetState();
+  State<FrmlistborangPPKJWidget> createState() =>
+      _FrmlistborangPPKJWidgetState();
 }
 
-class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
+class _FrmlistborangPPKJWidgetState extends State<FrmlistborangPPKJWidget>
     with TickerProviderStateMixin {
-  late FrmlistborangModel _model;
+  late FrmlistborangPPKJModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FrmlistborangModel());
+    _model = createModel(context, () => FrmlistborangPPKJModel());
 
     _model.textFieldsearchController ??= TextEditingController();
     _model.textFieldsearchFocusNode ??= FocusNode();
@@ -89,7 +90,7 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
             ),
           );
         }
-        List<JpnTblformRow> frmlistborangJpnTblformRowList = snapshot.data!;
+        List<JpnTblformRow> frmlistborangPPKJJpnTblformRowList = snapshot.data!;
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -254,7 +255,7 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             4.0, 12.0, 16.0, 0.0),
                         child: Text(
-                          frmlistborangJpnTblformRowList.length.toString(),
+                          frmlistborangPPKJJpnTblformRowList.length.toString(),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -268,7 +269,7 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                         child: Builder(
                           builder: (context) {
                             final queryListBorang =
-                                frmlistborangJpnTblformRowList
+                                frmlistborangPPKJJpnTblformRowList
                                     .map((e) => e)
                                     .toList();
                             return ListView.builder(
@@ -410,22 +411,22 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                                               children: [
                                                 FFButtonWidget(
                                                   onPressed: (queryListBorangItem
-                                                                  .fldppbsah !=
+                                                                  .fldppkjsah !=
                                                               null &&
                                                           queryListBorangItem
-                                                                  .fldppbsah !=
+                                                                  .fldppkjsah !=
                                                               '')
                                                       ? null
                                                       : () async {
                                                           await JpnTblformTable()
                                                               .update(
                                                             data: {
-                                                              'fldppbsah':
+                                                              'fldppkjsah':
                                                                   'sah',
-                                                              'fldppb_nama':
+                                                              'fldppkj_nama':
                                                                   widget
                                                                       .ppbnama,
-                                                              'fldppb_tarikh':
+                                                              'fldppkj_tarikh':
                                                                   supaSerialize<
                                                                           DateTime>(
                                                                       getCurrentTimestamp),
@@ -471,10 +472,10 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                                                           );
                                                         },
                                                   text: queryListBorangItem
-                                                                  .fldppbsah ==
+                                                                  .fldppkjsah ==
                                                               null ||
                                                           queryListBorangItem
-                                                                  .fldppbsah ==
+                                                                  .fldppkjsah ==
                                                               ''
                                                       ? 'Sahkan'
                                                       : 'Lengkap',
@@ -706,7 +707,7 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                           future: JpnTblformTable().queryRows(
                             queryFn: (q) => q
                                 .is_(
-                                  'fldppbsah',
+                                  'fldppkjsah',
                                   null,
                                 )
                                 .order('fldcreated_at'),
@@ -868,61 +869,72 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 FFButtonWidget(
-                                                  onPressed: () async {
-                                                    await JpnTblformTable()
-                                                        .update(
-                                                      data: {
-                                                        'fldppbsah': 'sah',
-                                                        'fldppb_nama':
-                                                            widget.ppbnama,
-                                                        'fldppb_tarikh':
-                                                            supaSerialize<
-                                                                    DateTime>(
-                                                                getCurrentTimestamp),
-                                                      },
-                                                      matchingRows: (rows) =>
-                                                          rows.eq(
-                                                        'fldformid',
-                                                        listViewSahJpnTblformRow
-                                                            .fldformid,
-                                                      ),
-                                                    );
-                                                    setState(() => _model
-                                                            .requestCompleter =
-                                                        null);
-                                                    await _model
-                                                        .waitForRequestCompleted();
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .ListViewBorangSah =
-                                                          true;
-                                                    });
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return AlertDialog(
-                                                          title: const Text(
-                                                              'Pengesahan'),
-                                                          content: const Text(
-                                                              'Borang sudah disahkan.'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: const Text('Ok'),
+                                                  onPressed: (listViewSahJpnTblformRow
+                                                                  .fldppkjsah !=
+                                                              null &&
+                                                          listViewSahJpnTblformRow
+                                                                  .fldppkjsah !=
+                                                              '')
+                                                      ? null
+                                                      : () async {
+                                                          await JpnTblformTable()
+                                                              .update(
+                                                            data: {
+                                                              'fldppkjsah':
+                                                                  'sah',
+                                                              'fldppkj_nama':
+                                                                  widget
+                                                                      .ppbnama,
+                                                              'fldppkj_tarikh':
+                                                                  supaSerialize<
+                                                                          DateTime>(
+                                                                      getCurrentTimestamp),
+                                                            },
+                                                            matchingRows:
+                                                                (rows) =>
+                                                                    rows.eq(
+                                                              'fldformid',
+                                                              listViewSahJpnTblformRow
+                                                                  .fldformid,
                                                             ),
-                                                          ],
-                                                        );
-                                                      },
-                                                    );
-                                                  },
+                                                          );
+                                                          setState(() => _model
+                                                                  .requestCompleter =
+                                                              null);
+                                                          await _model
+                                                              .waitForRequestCompleted();
+                                                          setState(() {
+                                                            FFAppState()
+                                                                    .ListViewBorangSah =
+                                                                true;
+                                                          });
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return AlertDialog(
+                                                                title: const Text(
+                                                                    'Pengesahan'),
+                                                                content: const Text(
+                                                                    'Borang sudah disahkan.'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: const Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              );
+                                                            },
+                                                          );
+                                                        },
                                                   text: listViewSahJpnTblformRow
-                                                                  .fldppbsah ==
+                                                                  .fldppkjsah ==
                                                               null ||
                                                           listViewSahJpnTblformRow
-                                                                  .fldppbsah ==
+                                                                  .fldppkjsah ==
                                                               ''
                                                       ? 'Sahkan'
                                                       : 'Lengkap',
@@ -1074,6 +1086,13 @@ class _FrmlistborangWidgetState extends State<FrmlistborangWidget>
                                                         'dd/MMM/yyyy',
                                                         listViewSahJpnTblformRow
                                                             .fldppbTarikh),
+                                                    namappkj:
+                                                        listViewSahJpnTblformRow
+                                                            .fldppkjNama,
+                                                    tarikhppkj: dateTimeFormat(
+                                                        'dd/MMM/yyyy',
+                                                        listViewSahJpnTblformRow
+                                                            .fldppkjTarikh),
                                                   );
                                                   if ((_model.apiResultwjkSah
                                                           ?.succeeded ??

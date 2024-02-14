@@ -83,6 +83,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/frmAdminPanel',
           builder: (context, params) => FrmAdminPanelWidget(
             namaadminpage: params.getParam('namaadminpage', ParamType.String),
+            adminrole: params.getParam('adminrole', ParamType.String),
           ),
         ),
         FFRoute(
@@ -93,7 +94,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'frmlistborang',
           path: '/frmlistborang',
-          builder: (context, params) => const FrmlistborangWidget(),
+          builder: (context, params) => FrmlistborangWidget(
+            ppbnama: params.getParam('ppbnama', ParamType.String),
+            role: params.getParam('role', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'frmBorangAutoritiSah',
+          path: '/frmBorangAutoritiSah',
+          builder: (context, params) => FrmBorangAutoritiSahWidget(
+            pbName: params.getParam('pbName', ParamType.String),
+            pbJawatan: params.getParam('pbJawatan', ParamType.String),
+            role: params.getParam('role', ParamType.String),
+            idno: params.getParam('idno', ParamType.String),
+            uuidph: params.getParam('uuidph', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'frmlistborangPPKJ',
+          path: '/frmlistborangPPKJ',
+          builder: (context, params) => FrmlistborangPPKJWidget(
+            ppbnama: params.getParam('ppbnama', ParamType.String),
+            role: params.getParam('role', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

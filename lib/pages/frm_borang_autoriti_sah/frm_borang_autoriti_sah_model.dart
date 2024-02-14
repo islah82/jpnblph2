@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'frm_borang_widget.dart' show FrmBorangWidget;
+import 'frm_borang_autoriti_sah_widget.dart' show FrmBorangAutoritiSahWidget;
 import 'package:flutter/material.dart';
 
-class FrmBorangModel extends FlutterFlowModel<FrmBorangWidget> {
+class FrmBorangAutoritiSahModel
+    extends FlutterFlowModel<FrmBorangAutoritiSahWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

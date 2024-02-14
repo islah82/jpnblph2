@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'frm_borang_model.dart';
-export 'frm_borang_model.dart';
+import 'frm_borang_autoriti_sah_model.dart';
+export 'frm_borang_autoriti_sah_model.dart';
 
-class FrmBorangWidget extends StatefulWidget {
-  const FrmBorangWidget({
+class FrmBorangAutoritiSahWidget extends StatefulWidget {
+  const FrmBorangAutoritiSahWidget({
     super.key,
     required this.pbName,
     required this.pbJawatan,
@@ -28,19 +27,20 @@ class FrmBorangWidget extends StatefulWidget {
   final String? uuidph;
 
   @override
-  State<FrmBorangWidget> createState() => _FrmBorangWidgetState();
+  State<FrmBorangAutoritiSahWidget> createState() =>
+      _FrmBorangAutoritiSahWidgetState();
 }
 
-class _FrmBorangWidgetState extends State<FrmBorangWidget>
+class _FrmBorangAutoritiSahWidgetState extends State<FrmBorangAutoritiSahWidget>
     with TickerProviderStateMixin {
-  late FrmBorangModel _model;
+  late FrmBorangAutoritiSahModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FrmBorangModel());
+    _model = createModel(context, () => FrmBorangAutoritiSahModel());
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -2184,6 +2184,7 @@ class _FrmBorangWidgetState extends State<FrmBorangWidget>
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
+                                            maxLines: 6,
                                             validator: _model
                                                 .txtfld12ControllerValidator
                                                 .asValidator(context),
@@ -2293,6 +2294,7 @@ class _FrmBorangWidgetState extends State<FrmBorangWidget>
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
+                                            maxLines: 6,
                                             validator: _model
                                                 .txtfld13ControllerValidator
                                                 .asValidator(context),
@@ -2306,15 +2308,41 @@ class _FrmBorangWidgetState extends State<FrmBorangWidget>
                                   height: 20.0,
                                   thickness: 1.0,
                                 ),
-                                const Row(
+                                Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [],
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 372.0,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          border: Border.all(
+                                            width: 2.0,
+                                          ),
+                                        ),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            'https://picsum.photos/seed/694/600',
+                                            width: 300.0,
+                                            height: 200.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
-                                    'Disahkan Oleh Petugas Harian',
+                                    'Tanda Tangan Petugas Harian',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -2646,52 +2674,8 @@ class _FrmBorangWidgetState extends State<FrmBorangWidget>
                                         alignment:
                                             const AlignmentDirectional(0.0, 0.0),
                                         child: FFButtonWidget(
-                                          onPressed: () async {
-                                            await JpnTblformTable().insert({
-                                              'fldbahagian': _model
-                                                  .txtbahagianarasController
-                                                  .text,
-                                              'fldnama': _model
-                                                  .txtpegawaibertugasController
-                                                  .text,
-                                              'fldjawatan': _model
-                                                  .txtjawatanController.text,
-                                              'fldsatu': _model.switch1Value,
-                                              'flddua': _model.switch2Value,
-                                              'fldtiga': _model.switch3Value,
-                                              'fldempat': _model.switch4Value,
-                                              'fldlima': _model.switch5Value,
-                                              'fldenam': _model.switch6Value,
-                                              'fldtujuh': _model.switch7Value,
-                                              'fldlapan': _model.switch8Value,
-                                              'fldsembilan':
-                                                  _model.switch9Value,
-                                              'fldsepuluh':
-                                                  _model.switch10Value,
-                                              'fldduabelas': _model
-                                                  .txtfld12Controller.text,
-                                              'fldtigabelas': _model
-                                                  .txtfld13Controller.text,
-                                              'fldsebelas': dateTimeFormat(
-                                                  'Hm', _model.datePicked1),
-                                              'fldph_nama': _model
-                                                  .ttphNamaController.text,
-                                              'fldph_tarikh':
-                                                  supaSerialize<DateTime>(
-                                                      getCurrentTimestamp),
-                                              'fldmulatugas':
-                                                  supaSerialize<PostgresTime>(
-                                                      PostgresTime(
-                                                          _model.datePicked2)),
-                                              'fldtamattugas':
-                                                  supaSerialize<PostgresTime>(
-                                                      PostgresTime(
-                                                          _model.datePicked3)),
-                                              'fldpbworkerno': widget.idno,
-                                              'relatetbl_pb': widget.uuidph,
-                                            });
-
-                                            context.pushNamed('formview');
+                                          onPressed: () {
+                                            print('Button pressed ...');
                                           },
                                           text: 'Save',
                                           options: FFButtonOptions(
@@ -2752,6 +2736,21 @@ class _FrmBorangWidgetState extends State<FrmBorangWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                           ),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 12.0, 0.0, 0.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                'https://picsum.photos/seed/73/600',
+                                                width: 444.0,
+                                                height: 200.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -2811,6 +2810,21 @@ class _FrmBorangWidgetState extends State<FrmBorangWidget>
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 12.0, 0.0, 0.0),
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                'https://picsum.photos/seed/73/600',
+                                                width: 444.0,
+                                                height: 200.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ],

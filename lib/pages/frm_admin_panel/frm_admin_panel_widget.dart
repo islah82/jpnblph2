@@ -16,9 +16,11 @@ class FrmAdminPanelWidget extends StatefulWidget {
   const FrmAdminPanelWidget({
     super.key,
     required this.namaadminpage,
+    required this.adminrole,
   });
 
   final String? namaadminpage;
+  final String? adminrole;
 
   @override
   State<FrmAdminPanelWidget> createState() => _FrmAdminPanelWidgetState();
@@ -113,15 +115,27 @@ class _FrmAdminPanelWidgetState extends State<FrmAdminPanelWidget> {
                               ),
                             ),
                             Text(
-                              'Admin Panel',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              'Admin Panel: ${widget.adminrole}',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
                             ),
                             Text(
                               valueOrDefault<String>(
                                 widget.namaadminpage,
                                 'adminName',
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
                             ),
                           ],
                         ),
@@ -147,6 +161,10 @@ class _FrmAdminPanelWidgetState extends State<FrmAdminPanelWidget> {
                           queryParameters: {
                             'namaadminpage': serializeParam(
                               widget.namaadminpage,
+                              ParamType.String,
+                            ),
+                            'adminrole': serializeParam(
+                              widget.adminrole,
                               ParamType.String,
                             ),
                           }.withoutNulls,
@@ -263,7 +281,35 @@ class _FrmAdminPanelWidgetState extends State<FrmAdminPanelWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed('frmlistborang');
+                        if (widget.adminrole == 'PPKJ') {
+                          context.pushNamed(
+                            'frmlistborangPPKJ',
+                            queryParameters: {
+                              'ppbnama': serializeParam(
+                                widget.namaadminpage,
+                                ParamType.String,
+                              ),
+                              'role': serializeParam(
+                                widget.adminrole,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
+                        } else {
+                          context.pushNamed(
+                            'frmlistborang',
+                            queryParameters: {
+                              'ppbnama': serializeParam(
+                                widget.namaadminpage,
+                                ParamType.String,
+                              ),
+                              'role': serializeParam(
+                                widget.adminrole,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
+                        }
                       },
                       child: Container(
                         width: 279.0,

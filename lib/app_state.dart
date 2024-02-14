@@ -43,4 +43,10 @@ class FFAppState extends ChangeNotifier {
   set columnPBBBBB(bool value) {
     _columnPBBBBB = value;
   }
+
+  bool _ListViewBorangSah = false;
+  bool get ListViewBorangSah => _ListViewBorangSah;
+  set ListViewBorangSah(bool value) {
+    _ListViewBorangSah = value;
+  }
 }
